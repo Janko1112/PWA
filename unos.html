@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="hr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Unos vijesti</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header>
+    <div class="container">
+      <h1>El Confidencial</h1>
+      <p>El diario de los lectores influyentes</p>
+      <hr class="nav-line" />
+      <nav>
+        <ul>
+          <li><a href="index.php">Home</a></li>
+          <li><a href="#">Europa</a></li>
+          <li><a href="#">Teknautas</a></li>
+            <li><a href="admin-panel.php">Administracija</a></li>
+          <li><a href="unos.html">Unos</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container">
+    <h2 class="section-title">Unos nove vijesti</h2>
+    <form action="skripta.php" method="POST" enctype="multipart/form-data">
+      <div class="form-item">
+        <label for="title">Naslov vijesti:</label>
+        <input type="text" name="title" id="title" class="form-field-textual" required autofocus />
+      </div>
+
+      <div class="form-item">
+        <label for="about">Kratki sadržaj vijesti (do 50 znakova):</label>
+        <textarea name="about" id="about" rows="4" cols="50" class="form-field-textual" maxlength="50" required></textarea>
+      </div>
+
+      <div class="form-item">
+        <label for="content">Sadržaj vijesti:</label>
+        <textarea name="content" id="content" rows="10" cols="50" class="form-field-textual" required></textarea>
+      </div>
+
+      <div class="form-item">
+        <label for="pphoto">Slika:</label>
+        <input type="file" accept="image/jpeg, image/png, image/gif" class="form-field-textual" name="pphoto" required />
+      </div>
+
+      <div class="form-item">
+        <label for="category">Kategorija vijesti:</label>
+        <select name="category" id="category" class="form-field-textual" required>
+          <option value="Europa">Europa</option>
+          <option value="Teknautas">Teknautas</option>
+        </select>
+      </div>
+
+      <div class="form-item">
+        <label for="archive">
+          <input type="checkbox" name="archive" id="archive" /> Spremiti u arhivu
+        </label>
+      </div>
+
+      <div class="form-item">
+        <button type="reset">Poništi</button>
+        <button type="submit">Prihvati</button>
+      </div>
+    </form>
+  </main>
+
+  <footer>
+    <div class="container">
+      <p>Janko Jakopec | jjakopec@tvz.hr | 2025</p>
+    </div>
+  </footer>
+</body>
+</html>
