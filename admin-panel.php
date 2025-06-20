@@ -41,7 +41,7 @@ define('UPLPATH', 'img/');
   $result = mysqli_query($dbc, $query);
 
   while ($row = mysqli_fetch_array($result)) {
-    echo '<form enctype="multipart/form-data" action="administracija.php" method="POST">
+    echo '<form enctype="multipart/form-data" action="admin-panel.php" method="POST">
       <input type="hidden" name="id" value="'.$row['id'].'">
       <input type="text" name="title" value="'.$row['naslov'].'" class="form-field-textual"><br>
       <textarea name="about" class="form-field-textual">'.$row['sazetak'].'</textarea><br>
