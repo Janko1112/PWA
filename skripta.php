@@ -18,7 +18,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $result = mysqli_query($dbc, $query) or die('Greška kod upisa u bazu.');
 }
 mysqli_close($dbc);
-header("Location: index.php"); // redirekcija natrag na početnu
+header("Location: index.php");
 exit;
 ?>
 
