@@ -42,7 +42,6 @@
     $username = $_POST['username'];
     $password = $_POST['password'];
 
-    // Dohvati korisnika iz baze
     $query = "SELECT id, korisnicko_ime, lozinka, razina FROM korisnik WHERE korisnicko_ime = ?";
     $stmt = mysqli_prepare($dbc, $query);
     mysqli_stmt_bind_param($stmt, "s", $username);
@@ -50,19 +49,15 @@
     $result = mysqli_stmt_get_result($stmt);
 
     if ($row = mysqli_fetch_assoc($result)) {
-      // Provjera lozinke
       if (password_verify($password, $row['lozinka'])) {
-        // Spremi korisničke podatke u session
         $_SESSION['user_id'] = $row['id'];
         $_SESSION['username'] = $row['korisnicko_ime'];
         $_SESSION['razina'] = $row['razina'];
 
         if ($row['razina'] == 1) {
-          // Admin pravo - redirect na admin panel
           header("Location: admin-panel.php");
           exit();
         } else {
-          // Nema admin prava
           echo "<p>Nemate administratorska prava.</p>";
         }
       } else {
